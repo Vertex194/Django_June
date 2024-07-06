@@ -9,14 +9,14 @@
 
 (function($) {
     "use strict";
-	
+		console.log(location.pathname);
 		/* ==============================================
 			SMOOTH SCROLL 
 		=============================================== */
 		$('a[href*=#]:not([href=#])').click(function() {
 			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
 				|| location.hostname == this.hostname) {
-		
+					
 				var target = $(this.hash);
 				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 				   if (target.length) {
@@ -204,25 +204,25 @@
 		
 		jQuery(".orange-bg").on('click',function(){
 			jQuery(".logo-header img").attr("src", "images/logo.png");
-			jQuery(".footer-logo .text-center img").attr("src", "images/logo.png");
+			jQuery(".footer-logo .text-center img").attr("src", "/static/images/logo.png");
 			return false;
 		});
 
 		jQuery(".strong-blue-bg").on('click',function(){
 			jQuery(".logo-header img").attr("src", "images/logo2.png");
-			jQuery(".footer-logo .text-center img").attr("src", "images/logo2.png");
+			jQuery(".footer-logo .text-center img").attr("src", "/static/images/logo2.png");
 			return false;
 		});
 
 		jQuery(".moderate-green-bg").on('click',function(){
-			jQuery(".logo-header img").attr("src", "images/logo3.png");
-			jQuery(".footer-logo .text-center img").attr("src", "images/logo3.png");
+			jQuery(".logo-header img").attr("src", "/static/images/logo3.png");
+			jQuery(".footer-logo .text-center img").attr("src", "/static/images/logo3.png");
 			return false;
 		});
 
 		jQuery(".vivid-yellow-bg").on('click',function(){
-			jQuery(".logo-header img").attr("src", "images/logo4.png");
-			jQuery(".footer-logo .text-center img").attr("src", "images/logo4.png");
+			jQuery(".logo-header img").attr("src", "/static/images/logo4.png");
+			jQuery(".footer-logo .text-center img").attr("src", "/static/images/logo4.png");
 			return false;
 		});
 
@@ -279,7 +279,7 @@
 					$("#message").slideUp(750, function() {
 						$('#message').hide();
 						$('#submit')
-							.after('<img src="images/ajax-loader.gif" class="loader" />')
+							.after('<img src="/static/images/ajax-loader.gif" class="loader" />')
 							.attr('disabled', 'disabled');
 						$.post(action, {
 								first_name: $('#first_name').val(),

@@ -5,11 +5,12 @@ import logging
 
 logging = logging.getLogger(__name__)
 
+def index(request):
+    return render(request,'blog/index.html')
+
 def make_reservation(request):
     return render(request,'blog/make_reservation.html')
 
 def about(request):
     return render(request,'blog/about.html')
 
-def home(request):
-    return render(request,'blog/index.html')
