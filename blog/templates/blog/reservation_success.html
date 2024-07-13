@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <title>預約成功</title>
+    <meta charset="UTF-8">
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html, css, 網頁, JS, javascript">
+    <meta name="description" content="Here is my page.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joy">
+
+    <!-- bootstrap js 字型-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Open+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/68f8681dba.js" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- css -->
+    {% load static %}
+    {% block script %}
+    <script src="{% static 'js/script.js' %}"></script>
+    <!--網站小圖示-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <!--歸零CSS-->
+    <link rel="stylesheet" href="{% static 'css/meng/reset.css' %}">
+    <!--變數設定CSS-->
+    <link rel="stylesheet" href="{% static 'css/meng/basic.css' %}">
+    <!--版面設定CSS-->
+    <link rel="stylesheet" href="{% static 'css/meng/style1.css' %}">
+    {% endblock %}
+    <!-- 引入 Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %}預約訂位{% endblock %}</title>
+    
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 自定义 CSS -->
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header1.html'%}
+    <div class="container mt-5">
+        {% if email_sent %}
+        <div class="alert alert-success">
+            <h4 class="alert-heading">預約成功</h4>
+            <p>您的預約已成功，並已發送確認郵件至您的信箱，請注意查收。</p>
+            <hr>
+            <p class="mb-0">若有任何問題，請聯繫我們。</p>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">
+            <h4 class="alert-heading">預約成功，但郵件發送失敗!</h4>
+            <p>您的預約已成功，但確認郵件發送失敗，請聯繫我們。</p>
+            <hr>
+            <p class="mb-0">感謝您的預約！</p>
+        </div>
+        {% endif %}
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

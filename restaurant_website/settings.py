@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    #"django.contrib.sites",
     "blog",
+    "mainsite",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = "restaurant_website.urls"
@@ -116,14 +122,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static/')
 ]
-
 # 在部署環境中使用
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP伺服器
+EMAIL_PORT = 587  # TLS通訊埠號
+EMAIL_USE_TLS = True  # 開啟TLS(傳輸層安全性)
+EMAIL_HOST_USER = 'justin194yj@gmail.com'  # 寄件者電子郵件
+EMAIL_HOST_PASSWORD = 'luxp blih nmeq hptb'  # Gmail應用程式的密碼
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
