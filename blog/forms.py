@@ -1,5 +1,5 @@
 from django import forms
-from .models import Reservation, TimeSlot
+from .models import Reservation, TimeSlot,Profile
 
 class ReservationForm(forms.ModelForm):
     class Meta:
@@ -9,3 +9,10 @@ class ReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['time_slot'].queryset = TimeSlot.objects.filter(available=True)
+
+class ProfileForm(forms.ModelForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = Profile
+        fields = ['address', 'phone']

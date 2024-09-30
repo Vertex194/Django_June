@@ -1,0 +1,14 @@
+{% extends 'account/base.html' %}
+{% block title %}Register - Olive Table{% endblock %}
+
+{% block content %}
+    <h1>Register</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ profile_form.as_p }}
+        <button type="submit" class="btn btn-success">註冊</button>
+        <br>
+        已經有帳號嗎? <a href="{% url 'login' %}">登入</a>
+    </form>
+{% endblock %}

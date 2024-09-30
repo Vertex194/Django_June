@@ -11,4 +11,7 @@ urlpatterns = [
     path('success/', views.reservation_success, name='reservation_success'),
     path('reservation_success/<int:email_sent>/', reservation_success, name='reservation_success'),
     path('post/<slug:slug>/', showpost, name='showpost'),
+    path("register/", views.register, name="register"),
+    path("logout/", views.user_logout, name="logout"),
+    path("login/", views.user_login, name="login"),
 ]

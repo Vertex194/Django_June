@@ -18,3 +18,13 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.time_slot} for {self.number_of_people} people'
+    
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=225)
+    phone = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.user.username

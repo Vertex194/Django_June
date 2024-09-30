@@ -9,9 +9,27 @@
       <!--主選單-->
       <nav id="main-nav">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="{% url 'about' %}" class="highlight_txt">About</a></li>
-          <li><a href="{% url 'make_reservation' %}">Reservation</a></li>          
+          <li class="nav-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'about' %}" class="highlight_txt">About</a>
+          </li>          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            使用者名稱: {{ user.get_username }}
+          </li>          
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          {% endif %}          
         </ul>
       </nav>
     </div>
